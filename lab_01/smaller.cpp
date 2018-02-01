@@ -1,3 +1,10 @@
+/*
+Author: Thomas Westfall
+Course: CSCI-133
+Instructor: Mr. Zamansky
+Assignment: Lab 1 Task A
+*/
+
 #include <iostream>
 using namespace std;
 
