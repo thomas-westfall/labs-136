@@ -8,3 +8,129 @@ Assignment: Lab 4
 #include "funcs.h"
 #include <iostream>
 using namespace std;
+
+
+string box(int w, int h){
+  string ans = "";
+  for(int i = 0; i < h; i++){
+    for(int j = 0; j < w; j++){
+      ans = ans + "*";
+    }
+    ans = ans + "\n";
+  }
+  return ans;
+
+}
+
+string checkerboard(int w, int h){
+  string ans = "";
+  for(int i = 0; i < h; i++){
+    if(i % 2 == 0){
+        for(int j = 0; j < w / 2 + 1; j++){
+	  ans = ans + "* ";
+	}
+	
+    }
+      else{
+	for(int j = 0; j < w / 2; j++){
+	  ans = ans + " *";
+	}
+      }
+  
+    ans = ans + "\n";
+  }
+  return ans;
+}
+
+string cross(int s){
+  string ans = "";
+  int temp = 2;
+
+  //first half
+  for(int i = 0; i < s / 2; i++){ 
+    for(int k = 0; k < i; k++){
+      ans = ans + " "; //how many spaces before first *
+    }
+    ans = ans + "*";
+    for(int j = s - temp; j > 0; j--){
+      ans = ans + " "; //how many spaces in between
+    }
+    temp = temp + 2;
+    ans = ans + "*\n";
+  }
+  temp = temp - 2;
+  //second half
+  int tempb = 1;
+  for(int l = 0; l < s / 2; l++){
+    for(int m = s / 2 - tempb; m > 0; m--){
+      ans = ans + " "; //how many spaces before first *
+    }
+    ans = ans + "*";
+    for(int j = s - temp; j > 0; j--){
+      ans = ans + " "; //how many spaces in between
+    }
+    temp = temp - 2;
+    tempb = tempb + 1;
+    ans = ans + "*\n";
+  }
+  return ans;
+}
+
+string lower(int l){
+  string ans = "";
+  for (int i = 0; i < l; i++){
+    for (int j = 0; j <= i; j++){
+      ans = ans + "*";
+    }
+    ans = ans + "\n";
+  }
+  
+  return ans;
+}
+
+string upper(int l){
+  string ans = "";
+  int temp = 0;
+  
+  for (int i = 0; i < l; i++){
+    for (int k = 0; k < temp; k++){
+      ans = ans + " ";
+    }
+    
+    for (int j = l - temp; j > 0; j--){
+      ans = ans + "*";
+    }
+    temp = temp + 1;
+    ans = ans + "\n";
+  }
+  
+  return ans;
+}
+
+string trapezoid(int w,int h){
+  string ans = "";
+  if (h * 2 >= w){
+    return "Impossible shape!\n";
+  }
+
+  for (int i = 0; i < h; i++){
+    for (int k = 0; k < i; k++){
+      ans = ans + " ";
+    }
+
+    for (int j = w; j > 0; j=j-2){
+      ans = ans + "*";
+    }
+    
+    ans = ans + "\n";
+  }
+  
+
+  string ans = "";
+  return ans;
+}
+
+string checkerboard33(int w, int h){
+  string ans = "";
+  return ans;
+}
