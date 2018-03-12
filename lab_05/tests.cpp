@@ -2,8 +2,8 @@
 Author: Thomas Westfall
 Course: CSCI-133
 Instructor: Mr. Zamansky
-Assignment: Lab 3
-Ashokan Reservoir data manipulation 
+Assignment: Lab 5
+Function Practice
 */
 
 #include "funcs.h"

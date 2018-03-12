@@ -3,7 +3,7 @@ Author: Thomas Westfall
 Course: CSCI-133
 Instructor: Mr. Zamansky
 Assignment: Lab 5
-
+Function Practice
 */
 
 #include <iostream>
