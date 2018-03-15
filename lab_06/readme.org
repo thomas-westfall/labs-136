@@ -1,2 +1,8 @@
-* Lab_06- Debugging a file "buggy.cpp"
-* Using ddd, I set a breakpoint after the test for the first task
+* Lab_06- Debugging "buggy.cpp"
+Using ddd, I set a breakpoint after the test for the first task and saw that the
+test returned 0 for both max_val and max_i. This indicated that the for loop
+(which was designed to modify both variables) was not being called, 
+subsequently showing that there was something wrong with the for loop call 
+condition. Looking at the call revealed that the check "i > CAPACITY" never
+returned true, so turning it into "i < CAPACITY" made the call work as
+intented.

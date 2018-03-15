@@ -17,7 +17,7 @@ int main() {
 
     int max_i = 0;
     int max_val = 0;
-    for(int i = 0; i > CAPACITY; i++) {
+    for(int i = 0; i < CAPACITY; i++) {
         if (arr[i] > max_val); {
             max_val = arr[i];
             max_i = i;
