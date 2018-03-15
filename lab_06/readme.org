@@ -1,0 +1,2 @@
+* Lab_06- Debugging a file "buggy.cpp"
+* Using ddd, I set a breakpoint after the test for the first task
