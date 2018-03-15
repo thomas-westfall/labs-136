@@ -1,5 +1,5 @@
 * Lab_06- Debugging "buggy.cpp"
-Part 1
+Part 1: 
 Using ddd, I set a breakpoint after the test for the first task and saw that the
 test returned 0 for both max_val and max_i. This indicated that the for loop
 (which was designed to modify both variables) was not being called, 
@@ -8,7 +8,7 @@ condition. Looking at the call revealed that the check "i > CAPACITY" never
 returned true, so turning it into "i < CAPACITY" made the call work as
 intented.
 
-Part 2
+Part 2: 
 Setting a breakpoint after the test for the second task, I saw that the test
 returned 0 for both min_val and min_i. I checked the for loop call (which
 was the problem in part 1) and saw that it was correct. Then, I realized that
@@ -20,3 +20,27 @@ saw that min_val was working as intended, but min_i was still not being
 modified. Looking in the if statement where it should be modified revealed
 that the statement was modifying max_i, rather than min_i. Switching max_i to
 min_i and running the code showed that the code was now working as intended.
+
+Part 3: 
+Setting a breakpoint after the test for the third task, I saw that the test
+returned 4197719 at index 7. I modified the test case to occur at the end of
+each loop in the for loop. Running this test showed that the index changed 
+when the current difference was larger than the current max, rather than
+the actual max_diff value. I fixed this by switching the places of 
+max_diff_i = i; and max_diff = diff;. Running this showed the program now
+worked as intended.
+
+Part 4: 
+Setting a brekapoint after the test for the fourth task, I saw that the test
+returned 3.5. With the value being so much smaller than what its supposed to
+be, I realized that there was something wrong with the addUp helper function.
+Running the for loop in addUp using next, I realized that sum was incrementing
+by 1, rather than the current array value. I fixed this by changing sum += i;
+to sum += arr[i];. Running the program showed that it now worked as intended.
+
+Part 5:
+Running the program gave a bus error at line 78, which is the if statement for
+part 5. Checking the if statement, I realized that the statement max_i = arr[i]
+was the reason why the program was failing. The test case was running arr[max_i]
+instead of arr[i], which was also part of the problem. Changing max_i = arr[i]
+to max_i = i fixed the problem.

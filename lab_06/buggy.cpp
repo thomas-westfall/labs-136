@@ -51,12 +51,16 @@ int main() {
 
         int diff = arr[i+1] - arr[i];
         if (diff > max_diff)
-            max_diff_i = i;
             max_diff = diff;
-        }
-
-    cout << "Maximum difference: " << max_diff << " ";
+	
+	max_diff_i = i;
+	
+	cout << "Maximum difference: " << max_diff << " ";
     cout << "at index " << max_diff_i << endl << endl;
+    }
+
+    // cout << "Maximum difference: " << max_diff << " ";
+    // cout << "at index " << max_diff_i << endl << endl;
 
 
     // Part 4.
@@ -71,8 +75,9 @@ int main() {
 
     max_i = 0;
     for(int i = 0; i < CAPACITY; i++) {
-        if (arr[i] > arr[max_i])
-            max_i = arr[i];
+      if (arr[i] > max_i){
+            max_i = i;
+      }
     }
     cout << "Maximum (revisited): " << arr[max_i] << " ";
     cout << "at index " << max_i << endl << endl;
@@ -85,7 +90,7 @@ int addUp(int arr[], int N) {
     int sum = 0;
 
     for(int i = 0; i < N; i++) {
-        sum += i;
+        sum += arr[i];
     }
     return sum;
 
