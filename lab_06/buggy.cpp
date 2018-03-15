@@ -31,11 +31,11 @@ int main() {
     // Minimum (correct answer 2 at index [5])
 
     int min_i = 0;
-    int min_val = 0;
+    int min_val = max_val;
     for(int i = 0; i < CAPACITY; i++) {
         if (arr[i] < min_val) {
             min_val = arr[i];
-            max_i = i;
+            min_i = i;
         }
     }
     cout << "Minimum: " << min_val << " ";

@@ -1,4 +1,5 @@
 * Lab_06- Debugging "buggy.cpp"
+Part 1
 Using ddd, I set a breakpoint after the test for the first task and saw that the
 test returned 0 for both max_val and max_i. This indicated that the for loop
 (which was designed to modify both variables) was not being called, 
@@ -6,3 +7,16 @@ subsequently showing that there was something wrong with the for loop call
 condition. Looking at the call revealed that the check "i > CAPACITY" never
 returned true, so turning it into "i < CAPACITY" made the call work as
 intented.
+
+Part 2
+Setting a breakpoint after the test for the second task, I saw that the test
+returned 0 for both min_val and min_i. I checked the for loop call (which
+was the problem in part 1) and saw that it was correct. Then, I realized that
+min_val was being set to 0, but the subsequent for loop checked if the current
+capacity value was smaller than min_val. Since none of the capacity values
+are negative, this if statement would never return true, thus never 
+modifying min_i and min_val. After fixing this, I ran the program again and
+saw that min_val was working as intended, but min_i was still not being
+modified. Looking in the if statement where it should be modified revealed
+that the statement was modifying max_i, rather than min_i. Switching max_i to
+min_i and running the code showed that the code was now working as intended.
