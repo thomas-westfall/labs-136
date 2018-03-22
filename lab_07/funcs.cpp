@@ -8,10 +8,7 @@ Cipher
 
 #include "funcs.h"
 #include <iostream>
-#include <cstdlib>
-#include <cstddef>
 #include <string>
-#include <fstream>
 
 void testascii(string s){
   for(int i = 0; i < s.size(); i++){
@@ -62,10 +59,16 @@ string encryptVigenere(string plaintext, string keyword){
   int rshift;
      for(int i = 0; i < plaintext.size(); i++){
        rshift = (int)keyword[temp];
-       //rshift is too big, make it remainder
-       cout<<rshift<<endl;
+       if(rshift > 64 && rshift < 91){
+	 rshift = rshift - 65;
+       }
+       if(rshift > 96 && rshift < 122){
+	 rshift = rshift - 97;
+       }
        ans = ans + shiftChar(plaintext[i], rshift);
+       if (isalpha(plaintext[i])){
        temp = temp + 1;
+       }
        if(temp == keyword.size()){
 	 temp = 0;
 	   }
@@ -76,11 +79,32 @@ string encryptVigenere(string plaintext, string keyword){
 
 string decryptCaesar(string ciphertext, int rshift){
   string ans = "";
+  for (int i = 0; i < ciphertext.size(); i++){
+    ans = ans + shiftChar(ciphertext[i], 26 - rshift);
+  }
   return ans;
 }
 
 string decryptVigenere(string ciphertext, string keyword){
   string ans = "";
+  int temp = 0;
+  int rshift;
+     for(int i = 0; i < ciphertext.size(); i++){
+       rshift = (int)keyword[temp];
+       if(rshift > 64 && rshift < 91){
+	 rshift = rshift - 65;
+       }
+       if(rshift > 96 && rshift < 122){
+	 rshift = rshift - 97;
+       }
+       ans = ans + shiftChar(ciphertext[i], 26 - rshift);
+       if (isalpha(ciphertext[i])){
+       temp = temp + 1;
+       }
+       if(temp == keyword.size()){
+	 temp = 0;
+       }
+     }
   return ans;
 }
 

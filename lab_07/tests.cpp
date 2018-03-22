@@ -2,19 +2,13 @@
 Author: Thomas Westfall
 Course: CSCI-133
 Instructor: Mr. Zamansky
-Assignment: Lab 5
-Function Practice
+Assignment: Lab 7
+Cipher
 */
 
 #include "funcs.h"
 #include <iostream>
-#include <cstdlib>
-#include <fstream>
-#include <limits>
-#include <cstddef>
 #include <string>
-#include <iomanip>
-
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
@@ -29,21 +23,17 @@ TEST_CASE("Testing Task B: encryptCaesar"){
 }
 
 TEST_CASE("Testing Task C: encryptVigenere"){
-  CHECK(encryptVigenere("Hello World!", "cake") == "filler");
+  CHECK(encryptVigenere("Hello, World!", "cake") == "Jevpq, Wyvnd!");
  
 
 }
 
 TEST_CASE("Testing Task D: decryptCaesar"){
-  CHECK(countPrimes(1,2) == 2);
-  CHECK(countPrimes(33,34) == 0);
- 
+  CHECK(decryptCaesar("Rovvy, Gybvn!",10) == "Hello, World!");
+
 
 }
 
 TEST_CASE("Testing Task D2: decryptVigenere"){
-  CHECK(isTwinPrime(17) == true);
-  CHECK(isTwinPrime(18) == false);
- 
-
+  CHECK(decryptVigenere("Jevpq, Wyvnd!", "cake") == "Hello, World!");
 }
