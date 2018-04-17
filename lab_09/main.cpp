@@ -2,8 +2,8 @@
 Author: Thomas Westfall
 Course: CSCI-133
 Instructor: Mr. Zamansky
-Assignment: Lab 7
-Cipher
+Assignment: Lab 9
+Image processing
 */
 
 #include <iostream>
@@ -50,7 +50,57 @@ int main() {
 	  }
 	}
 
-
+	copy(out,img,h,w);
+	box(out,h,w);
+	writeImage(out, h, w);
 	
+	while(true){
+	  string x;
+	  cout<< "Task C: Box in picture complete!\nOpen outImage.pgm to view, type any character to continue: ";
+	  cin >> x;
+	  if(x != ""){
+	    break;
+	  }
+	}
+	copy(out,img,h,w);
+	frame(out,h,w);
+	writeImage(out, h, w);
+	
+	while(true){
+	  string x;
+	  cout<< "Task D: Frame in picture complete!\nOpen outImage.pgm to view, type any character to continue: ";
+	  cin >> x;
+	  if(x != ""){
+	    break;
+	  }
+	}
+	
+	copy(out,img,h,w);
+	scale(out,h,w);
+	writeImage(out, h*2, w*2);
+	
+	while(true){
+	  string x;
+	  cout<< "Task E: 200% scale of picture complete!\nOpen outImage.pgm to view, type any character to continue: ";
+	  cin >> x;
+	  if(x != ""){
+	    break;
+	  }
+	}
+
+	copy(out,img,h,w);
+	pixelate(out,h,w);
+	writeImage(out, h, w);
+	
+	while(true){
+	  string x;
+	  cout<< "Task F: Pixelating the picture complete!\nOpen outImage.pgm to view, type any character to continue: ";
+	  cin >> x;
+	  if(x != ""){
+	    break;
+	  }
+	}
+
+
 }
 

@@ -111,36 +111,63 @@ void inverthalf(int image[MAX_H][MAX_W], int height, int width){
 }
 
 void box(int image[MAX_H][MAX_W], int height, int width){
-  	for(int row = 0; row < height; row++) {
-		for(int col = 0; col < width; col++) {
-		  image[row][col] = 255 - image[row][col];
+  for(int row = height / 4; row < (height * 3) / 4; row++) {
+	  for(int col = width / 4; col < (width * 3) / 4; col++) {
+		  image[row][col] = 255;
 		}
 	}
 	return;
 }
 
 void frame(int image[MAX_H][MAX_W], int height, int width){
-  	for(int row = 0; row < height; row++) {
-		for(int col = 0; col < width; col++) {
-		  image[row][col] = 255 - image[row][col];
-		}
-	}
+  for(int row = height / 4; row < (height * 3) / 4; row++) {
+    image[row][width / 4] = 255;
+    image[row][(width * 3) / 4] = 255;
+
+  }
+  for(int col = width / 4; col < (width * 3) / 4; col++) {
+    image[height / 4][col] = 255;
+    image[(height * 3) / 4][col] = 255;
+  }
+
 	return;
 }
 
 void scale(int image[MAX_H][MAX_W], int height, int width){
-  	for(int row = 0; row < height; row++) {
-		for(int col = 0; col < width; col++) {
-		  image[row][col] = 255 - image[row][col];
+  int imageb[MAX_H][MAX_W];
+  copy(imageb, image,height,width);
+  height = height * 2;
+  width = width * 2;
+  int rowb = 0;
+  int colb = 0;
+  	for(int row = 0; row < height; row = row + 2) {
+		for(int col = 0; col < width; col = col + 2) {
+		  
+		  image[row][col] = imageb[rowb][colb];
+		  image[row + 1][col] = imageb[rowb][colb];
+		   image[row][col + 1] = imageb[rowb][colb];
+		   image[row + 1][col + 1] = imageb[rowb][colb];
+		  colb++;	    
 		}
+		rowb++;
+		colb = 0;
 	}
 	return;
 }
 
 void pixelate(int image[MAX_H][MAX_W], int height, int width){
-  	for(int row = 0; row < height; row++) {
-		for(int col = 0; col < width; col++) {
-		  image[row][col] = 255 - image[row][col];
+  int imageb[MAX_H][MAX_W];
+  int avg = 0;
+  copy(imageb, image, height, width);
+  	for(int row = 0; row < height; row = row + 2) {
+		for(int col = 0; col < width; col = col + 2) {
+		  avg = 0;
+		  avg = imageb[row][col] + imageb[row + 1][col] + imageb[row][col + 1] + imageb[row + 1][col + 1];
+		  avg = avg / 4;
+		  image[row][col] = avg;
+		  image[row + 1][col] = avg;
+		  image[row][col + 1] = avg;
+		  image[row + 1][col + 1] = avg;
 		}
 	}
 	return;
