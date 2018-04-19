@@ -26,80 +26,29 @@ int main() {
 
 	copy(out,img,h,w);
 	invert(out,h,w);
-	// and save this new image to file "outImage.pgm"
-	writeImage(out, h, w);
+	// and save this new image to file "task-a.pgm"
+	writeImage(out, h, w, "task-a.pgm");
 
-	while(true){
-	  string x;
-	  cout<< "Task A: Inverting the picture complete!\nOpen outImage.pgm to view, type any character to continue: ";
-	  cin >> x;
-	  if(x != ""){
-	    break;
-	  }
-	}
 	copy(out,img,h,w);
 	inverthalf(out,h,w);
-	writeImage(out, h, w);
+	writeImage(out, h, w, "task-b.pgm");
 	
-	while(true){
-	  string x;
-	  cout<< "Task B: Inverting half of the picture complete!\nOpen outImage.pgm to view, type any character to continue: ";
-	  cin >> x;
-	  if(x != ""){
-	    break;
-	  }
-	}
-
 	copy(out,img,h,w);
 	box(out,h,w);
-	writeImage(out, h, w);
-	
-	while(true){
-	  string x;
-	  cout<< "Task C: Box in picture complete!\nOpen outImage.pgm to view, type any character to continue: ";
-	  cin >> x;
-	  if(x != ""){
-	    break;
-	  }
-	}
+	writeImage(out, h, w, "task-c.pgm");
+
 	copy(out,img,h,w);
 	frame(out,h,w);
-	writeImage(out, h, w);
-	
-	while(true){
-	  string x;
-	  cout<< "Task D: Frame in picture complete!\nOpen outImage.pgm to view, type any character to continue: ";
-	  cin >> x;
-	  if(x != ""){
-	    break;
-	  }
-	}
+	writeImage(out, h, w, "task-d.pgm");
 	
 	copy(out,img,h,w);
 	scale(out,h,w);
-	writeImage(out, h*2, w*2);
+	writeImage(out, h*2, w*2, "task-e.pgm");
 	
-	while(true){
-	  string x;
-	  cout<< "Task E: 200% scale of picture complete!\nOpen outImage.pgm to view, type any character to continue: ";
-	  cin >> x;
-	  if(x != ""){
-	    break;
-	  }
-	}
-
 	copy(out,img,h,w);
 	pixelate(out,h,w);
-	writeImage(out, h, w);
+	writeImage(out, h, w, "task-f.pgm");
 	
-	while(true){
-	  string x;
-	  cout<< "Task F: Pixelating the picture complete!\nOpen outImage.pgm to view, type any character to continue: ";
-	  cin >> x;
-	  if(x != ""){
-	    break;
-	  }
-	}
 
 
 }

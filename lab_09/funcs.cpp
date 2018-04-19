@@ -56,9 +56,9 @@ void readImage(int image[MAX_H][MAX_W], int &height, int &width) {
 
 // Writes a PGM file
 // Need to provide the array data and the image dimensions
-void writeImage(int image[MAX_H][MAX_W], int height, int width) {
+void writeImage(int image[MAX_H][MAX_W], int height, int width, string name) {
 	ofstream ostr;
-	ostr.open("outImage.pgm");
+	ostr.open(name);
 	if (ostr.fail()) {
 		cout << "Unable to write file\n";
 		exit(1);

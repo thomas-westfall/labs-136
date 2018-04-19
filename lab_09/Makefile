@@ -10,7 +10,7 @@ funcs.o: funcs.cpp funcs.h
 
 
 clean:
-	rm -f main.o funcs.o outImage.pgm
+	rm -f main main.o funcs.o task-a.pgm task-b.pgm task-c.pgm task-d.pgm task-e.pgm task-f.pgm
 
 
 
