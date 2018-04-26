@@ -1,0 +1,17 @@
+** Leo Au-Yeung, Thomas Westfall, Meraz Mamun
+
+* Connect 4
+
+** Main Components
+
+- Be able to set up the board, and how everything is displayed. (2d array recommended; display of board/current state of game, win/lose/tie)
+
+- Player input: how the 2 players will be able to play the game. (Error check the inputs to make sure game doesn't break)
+
+- Game functionality: How the program itself reacts to the players' inputs (in-game functionality, reason for the game to run, win condition/tie condition)
+
+** Extra functionality/optimization: 
+- Resetting the board after the game is won (or tied)
+- Tracking scores of player 1 and player 2
+- Having a "main menu" for game options (decide size of board, decide pieces in row required to win -> optimization of the two)
+- Optimize display of game
