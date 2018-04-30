@@ -1,0 +1,1 @@
+Tasks A and B took the entire class time on 4/30/18
