@@ -1,0 +1,61 @@
+** Leo Au-Yeung, Thomas Westfall, Meraz Mamun
+
+* Connect 4
+
+** Main Components
+
+Description:
+In this project, you are going to model a 2 player "Connect 4" game using a classic 6 by 7 (columns by rows) board.
+The game should start off with an empty Connect 4 board (based on a 2-dimensional array). 
+Player 1 will get the first move, dropping one of their pieces into their desired column, at which point it becomes Player 2's turn to input a move to do the same.
+The game will run until either:
+1. A player creates a "Connect 4" where they have 4 of their pieces in a straight line horizontally, vertically, or diagonally.
+2. The board is filled with pieces, but no player has won, resulting in a tie.
+
+A) Setup of board: Create a function that uses a 2d array to create a board configuration of a normal 6 x 7 Connect 4 board.
+The data value of each cell on the board will be 0 (empty), 1 (player 1's piece), or 2 (player 2's piece).
+
+To display the board, create a new function that outputs a string as the display.
+The function should go through the board 2d array each time and display a character based on the value of the cell (ex. empty for 0, @ for 1, and # for 2).
+For a display that allows the board to look more distinguishable, maybe follow a design such as:
+
+ 1 2 3 4 5 6 7
+===============
+| | | | | | | |
+===============
+| | | | | | | |
+===============
+| | | | | | | |
+===============
+| | | | | | | |
+===============
+| | | | | | | |
+===============
+| | | | | | | |
+===============
+
+
+B) Player input: Create a function that allows the player to input a "move" (1-7).
+This function should also check for errors that may break the game such as (but not limited to): a non-integer input, an integer not between 1-7, and an input for a "full" column.
+At this point, there needs to be a way to keep track of which player's turn it is.
+
+C) Game functionality: Implement the mechanism for the game to actually run!
+To do this, start off with a condition for the game to continue running: while neither player has reached a "Connect 4", and while the board is not "filled".
+
+Create another function which properly places the player's piece on the board based on their input, and then checks if the player's move won them the game.
+One way to do this is by checking the pieces around the current cell, and if any of them are the current player's, then check the following pieces in that direction (if possible).
+
+The game should end when a player has won or a tie is reached. The players should no longer be allowed to input further moves.
+A function can be created to display a message for the outcome of the game once one has been reached.
+
+D) Optional functionality:
+At the very start of the game (before the board is created), allow the input of the dimensional specifications of the board (size restrictions up for judgement) 
+as well as the number of pieces needed to "connect" to win the game.
+Adding this element will also require readjustments to each of the previous tasks to take these specifications into consideration for the game.
+
+Create an end game screen which allows the players to start a new game once a game has concluded.
+In addition to adding this, each player's score or win/lose/tie counts can be recorded and displayed.
+
+Optimizing the display of the game; make the board look nice!
+
+
