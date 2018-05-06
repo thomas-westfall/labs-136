@@ -10,11 +10,13 @@ Structs
 #include "labstructs.h"
 using namespace std;
 
-string printTime(Time time);
+void printTime(Time time);
+string printTimes(Time time);
 int minutesSinceMidnight(Time time);
 int minutesUntil(Time earlier, Time later);
 Time addMinutes(Time time, int min);
 void printMovie(Movie mv);
+string printMovies(Movie mv);
 string TimeSlotString(TimeSlot ts);
 TimeSlot scheduleAfter(TimeSlot ts, Movie nextMovie);
 bool timeOverlap(TimeSlot ts1, TimeSlot ts2); 
