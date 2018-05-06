@@ -1,1 +1,1 @@
-Tasks A and B took the entire class time on 4/30/18
+Tasks A and B took the entire class time on 4/30/18. The rest of the lab took another two hours over the course of the weekend, ending on 5/6/18.
