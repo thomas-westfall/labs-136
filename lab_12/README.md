@@ -1,0 +1,1 @@
+The tasks themselves took around an hour of class time. Making tests.cpp and main.cpp took another hour.
