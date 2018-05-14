@@ -11,7 +11,7 @@ Recursion
 #include <iostream>
 #include "funcs.h"
 #include <math.h>
-
+//
 using namespace std;
 
 
@@ -58,19 +58,21 @@ bool isAlphanumeric(string s){
 bool nestedParens(string s){
   if(s == "")
     return true;
-  if(s[0] != "(" || s[0] != ")")
-      return false;
+  if(s.substr(0,1) != "(")
+	    return false;
   if(s.find("()") != string::npos)
-    return nestedParens(s.substr(0,s.find("()")) + s.substr(find("()"), s.length() - s.substr(0, s.find("()")) + 2);
+    return nestedParens(s.substr(0,(s.find("()"))) + s.substr(s.find("()")+2, s.length() - s.substr(0,s.find("()")).length() + 2));
   return false;
 							    
     
 
     
-  
-
 }
 
 bool divisible(int *prices, int size){
+/*	if(prices.size() == 0)
+		return true;
+	return divisible()
+	*/
   return true;
 }

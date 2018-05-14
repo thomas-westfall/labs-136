@@ -1,1 +1,1 @@
-The tasks themselves took around an hour of class time. Making tests.cpp and main.cpp took another hour.
+Every task except the last took around 3 hours in class and on the weekend.
