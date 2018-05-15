@@ -1,3 +1,10 @@
+/*
+Author: Thomas Westfall
+Course: CSCI-133
+Instructor: Mr. Zamansky
+Assignment: Lab 13
+Objects
+*/
 #include <iostream>
 #include <string>
 #include "social3.h"
