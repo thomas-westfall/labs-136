@@ -1,1 +1,1 @@
-Spent an hour on basic structure (task a and makefile) over the weekend
+I used Connor's Makefile for this project, since I was unsure how to write it myself. The lab took around 5 hours of work over the course of 4 days.
