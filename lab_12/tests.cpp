@@ -2,8 +2,8 @@
 Author: Thomas Westfall
 Course: CSCI-133
 Instructor: Mr. Zamansky
-Assignment: Lab 11
-Pointers
+Assignment: Lab 12
+Recursion
 */
 
 #include "funcs.h"
@@ -13,66 +13,65 @@ Pointers
 #include "doctest.h"
 
 using namespace std;
-Coord3D pointC = {10, 20, 30};
-Coord3D pointD = {-20, 21, -22};
 
-TEST_CASE("Testing Task A: length"){
-  
-  CHECK(round(length(&pointC)) == 37.0);
-  CHECK(round(length({&pointD})) == 36.1);
+
+TEST_CASE("Testing Task B: sumRange"){
+  CHECK(sumRange(1,3) == 6);
+  CHECK(sumRange(-2,10) == 52);
+
+}
+
+
+TEST_CASE("Testing Task C: sumArray"){
+
+ int size = 10;
+    int *arr = new int[size]; // allocate array dynamically
+    arr[0] = 12;
+    arr[1] = 17;
+    arr[2] = -5;
+    arr[3] = 3;
+    arr[4] = 7;
+    arr[5] = -15;
+    arr[6] = 27;
+    arr[7] = 5;
+    arr[8] = 13;
+    arr[9] = -21;
+
+    int sum1 = sumArray(arr, size); // Add all elements
+ 
+    int sum2 = sumArray(arr, 5); // Add up first five elements
+ 
+ CHECK(sum1 == 43);
+ CHECK(sum2 == 34);
+
+
+}
+
+
+TEST_CASE("Testing Task D: isAlphanumeric"){
+  CHECK(isAlphanumeric("ABCD") == true);
+  CHECK(isAlphanumeric("Abcd1234xyz") == true);
+  CHECK(isAlphanumeric("") == true);
+  CHECK(isAlphanumeric("KLMN 8-7-6") == false);
+	
  
 
 }
 
-Coord3D pointP = {10, 20, 30};
-Coord3D pointQ = {-20, 21, -22};
-TEST_CASE("Testing Task B: addminutes"){
-  CHECK(fartherFromOrigin(&pointP, &pointQ) == &pointP);
-  CHECK(fartherFromOrigin(&pointP, &pointQ) == &pointQ);
+TEST_CASE("Testing Task E: nestedParens"){
 
+  CHECK(nestedParens("((()))") == true);
+  CHECK(nestedParens("()") == true);
+  CHECK(nestedParens("") == true);
+
+  CHECK(nestedParens("(((") == false);
+  CHECK(nestedParens("(()") == false);
+  CHECK(nestedParens(")(") == false);
+  CHECK(nestedParens("a(b)c") == false);
 }
-TEST_CASE("Testing Task C: timeslot"){
-Coord3D pos = {0, 0, 100.0};
-Coord3D vel = {1, -5, 0.2};
 
-move(&pos, &vel, 2.0);
- CHECK(pos.x == 2);
- CHECK(pos.y == -10);
- CHECK(pos.z == 100.4);
+int prices [] = {10, 15, 12, 18, 19, 17, 13, 35, 33};
+TEST_CASE("Testing Task F: divisible"){
+  CHECK(divisible(prices, 9) == true);
 
-}
-//Task D can't be tested here, so it's ignored
-/*
-TEST_CASE("Testing Task D: scheduleafter"){
-//CHECK(scheduleAfter(ts,nextMovie) == ts);
-//  CHECK(scheduleAfter(ts,nextmovie) == ts);
- 
-
-}
-*/
-TEST_CASE("Testing Task E: Creating and deleting objects"){
-Coord3D pos = {0, 0, 100.0};
-Coord3D vel = {1, -5, 0.2};
-
- Coord3D *posb = createCoord3D(0,0,100.0);
- CHECK(pos.x == posb->x);
- CHECK(pos.y == posb->y);
- CHECK(pos.z == posb->z);
- 
-
- deleteCoord3D(posb);
-}
-TEST_CASE("Testing Task F: Particles"){
-  Particle *p = createParticle(1.0, 1.5, 2.0, 0.1, 0.2, 0.3);
-    double time = 0.0;
-    double dt = 0.1;
-    setVelocity(p, 10.0 * time, 0.3, 0.1);
-    move(p,dt);
-    time = time + dt;
-    CHECK(getPosition(p).x == 1);
-    CHECK(getPosition(p).y == 1.53);
-    CHECK(getPosition(p).z == 2.01);
- 
-
- deleteParticle(p);
 }

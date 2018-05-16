@@ -64,15 +64,35 @@ bool nestedParens(string s){
     return nestedParens(s.substr(0,(s.find("()"))) + s.substr(s.find("()")+2, s.length() - s.substr(0,s.find("()")).length() + 2));
   return false;
 							    
-    
-
-    
 }
 
+bool divisiblehelper(int *prices, int size, int sum){
+   if (sum == 0)
+     return true;
+   if (size == 0 && sum != 0)
+     return false;
+ 
+   //If "last" painting is greater than half, then it isn't used
+   //since its worth too much to be split between Bob and Alice
+   if (prices[size-1] > sum)
+     return divisiblehelper(prices, size-1, sum);
+   
+   //since the last element can be used in the sum, we check if either Alice
+   //or Bob can take it. We then remove it from the possible paintings that
+   //can be given to either Bob or Alice since it was just given to one of them
+   //thus, the previous element to the original last element
+   //is now the current last. this continues until no more paintings can be
+   //split between the two such that the sum is equally half
+   return divisiblehelper(prices, size-1, sum) || divisiblehelper(prices, size-1, sum-prices[size-1]);
+}
+ 
 bool divisible(int *prices, int size){
-/*	if(prices.size() == 0)
-		return true;
-	return divisible()
-	*/
-  return true;
+  int sum =  sumArray(prices, size);
+    //Cant divide an odd integer evenly so, all odd sums are never divisible
+    if (sum%2 == 1)
+       return false;
+ 
+    //Since sum is divisible by 2, we can now check if Alice and Bob can get
+    //half the sum each using the helper
+    return divisiblehelper(prices, size, sum/2);
 }
